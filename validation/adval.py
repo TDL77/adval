@@ -52,6 +52,6 @@ class adVal:
         # print out the final result
         score = (cross_val_results["test-auc-mean"]).iloc[-1]
         if score <= 0.55:
-            print("Few data leakage, AUC Score: {:.2}".format(score))
+            print("Train and test data are similar, AUC Score: {:.2}".format(score))
         else: 
-            print("More than threshold data leakage, AUC Score: {:.2}".format(score))
+            print("Train and test data are not similar, AUC Score: {:.2}".format(score))
