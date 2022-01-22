@@ -37,7 +37,7 @@ Install the package:
     python setup.py install    
 
 Example on Mobile Price Classification Dataset
-----------------------------------------
+--------------------------------------------------------------------------------
 
 .. code:: python
 
