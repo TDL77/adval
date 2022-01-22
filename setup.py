@@ -17,7 +17,7 @@ CLASSIFIERS = [
 
 # calling the setup function 
 setup(name='adval',
-      version='0.0.2',
+      version='0.0.1',
       description='Adversarial validation for train-test datasets',
       long_description=Long_description,
       url='https://github.com/alikula314/adval',
