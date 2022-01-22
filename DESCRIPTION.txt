@@ -1,0 +1,52 @@
+
+Auto_train_test_splitter
+==============================
+
+Auto train test split with adversarial validation.
+Use it to get the without data leakage train-test split.
+
+The code is Python 3
+
+Installation
+------------------------
+
+Fast install:
+
+::
+
+    pip install atts
+
+For a manual install get this package:
+
+::
+
+    wget https://github.com/alikula314/att_split/atts/archive/master.zip
+    unzip master.zip
+    rm master.zip
+    cd atts-master
+
+Install the package:
+
+::
+
+    python setup.py install    
+
+Example on Red Wine Quality Dataset
+----------------------------------------
+
+.. code:: python
+
+    from atts import atts
+
+    # run module
+    k = atts(df, "quality" , 0.05, 0.50, 0.03)
+
+    # get auc_score - test_size dataframe
+    k.test_size()
+    
+    #get the plot
+    k.auc_size_plot((10,6))
+
+
+    
+    
