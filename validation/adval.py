@@ -10,11 +10,12 @@ from xgboost import cv
 
 class adVal:
 
-    def __init__(self, train, test, target, id):
+    def __init__(self, train, test, similarity_ratio ,target, id):
         self.train = train
         self.test = test
         self.target = target
         self.id =id
+        self.similarity_ratio = similarity_ratio
 
     def auc_score(self): 
         train = self.train.drop(columns=[self.target, self.id], errors='ignore')
@@ -51,7 +52,9 @@ class adVal:
 
         # print out the final result
         score = (cross_val_results["test-auc-mean"]).iloc[-1]
-        if score <= 0.55:
-            print("Train and test data are similar, AUC Score: {:.2}".format(score))
+        sc = 100 - ((score - 0.5) * 200 )
+        sr = (self.similarity_ratio / 100) / 2
+        if score <= sr:
+            print("Train and test data are similar, Similarity Ratio: ½{:.2}".format(sc))
         else: 
-            print("Train and test data are not similar, AUC Score: {:.2}".format(score))
+            print("Train and test data are not similar, Similarity Ratio: ½{:.2}".format(sc))
