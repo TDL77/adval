@@ -45,9 +45,10 @@ Example on Mobile Price Classification Dataset
     
     # In this dataset: 
     # target = "price_range"
+    # 95 = ½ threshold similarity ratio you want
     # Id Column = "id"
     # run module
-    k = adVal(train, test,  "price_range", "id")
+    k = adVal(train, test, 95,  "price_range", "id")
 
     # get auc_score
     k.auc_score()
