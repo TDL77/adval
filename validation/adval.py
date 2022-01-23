@@ -8,7 +8,7 @@ import xgboost as xgb
 from xgboost import cv
 
 
-class adVal:
+class adVala:
 
     def __init__(self, train, test, similarity_ratio ,target, id):
         self.train = train
@@ -53,8 +53,8 @@ class adVal:
         # print out the final result
         score = (cross_val_results["test-auc-mean"]).iloc[-1]
         sc = 100 - ((score - 0.5) * 200 )
-        sr = (self.similarity_ratio / 100) / 2
-        if score <= sr:
-            print("Train and test data are similar, Similarity Ratio: ½{:.2}".format(sc))
+        sr = self.similarity_ratio
+        if sc >= sr:
+            print("Train and test data are similar, Similarity Ratio: ½{:.4}".format(sc))
         else: 
-            print("Train and test data are not similar, Similarity Ratio: ½{:.2}".format(sc))
+            print("Train and test data are not similar, Similarity Ratio: ½{:.4}".format(sc))
